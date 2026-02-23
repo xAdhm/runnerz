@@ -20,18 +20,18 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner(RunRepository runRepository) {
-		return args -> {
-			Run run = new Run(
-					1,
-					"First Run",
-					LocalDateTime.of(2024, 6, 1, 6, 0),
-					LocalDateTime.of(2024, 6, 1, 7, 0),
-					5,
-					Location.OUTDOOR
-			);
-			runRepository.create(run);
-		};
-	}
+//	@Bean
+//	CommandLineRunner runner(RunRepository runRepository) {
+//		return args -> {
+//			Run run = new Run(
+//					1,
+//					"First Run",
+//					LocalDateTime.of(2024, 6, 1, 6, 0),
+//					LocalDateTime.of(2024, 6, 1, 7, 0),
+//					5,
+//					Location.OUTDOOR
+//			);
+//			runRepository.create(run);
+//		};
+//	}
 }
