@@ -2,6 +2,7 @@ package com.adhammustafa.runnerz;
 
 import com.adhammustafa.runnerz.run.Location;
 import com.adhammustafa.runnerz.run.Run;
+import com.adhammustafa.runnerz.run.RunRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -20,18 +21,17 @@ public class Application {
 	}
 
 	@Bean
-	CommandLineRunner runner() {
+	CommandLineRunner runner(RunRepository runRepository) {
 		return args -> {
 			Run run = new Run(
 					1,
-					"Morning Run",
+					"First Run",
 					LocalDateTime.of(2024, 6, 1, 6, 0),
 					LocalDateTime.of(2024, 6, 1, 7, 0),
 					5,
 					Location.OUTDOOR
 			);
-			log.info("Run Details: " + run);
+			runRepository.create(run);
 		};
 	}
-
 }
